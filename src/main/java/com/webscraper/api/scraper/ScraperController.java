@@ -16,7 +16,7 @@ public class ScraperController {
 	
 	@Autowired
 	private ScrapperService scrapperService;
-		
+
 	@GetMapping("/scrap")
 	public ResponseEntity<List<Proxy>> CollectInfoFormSite() {
 		//return new ResponseEntity<List<Proxy>>(scrapperService.collectproxyList(),HttpStatus.OK);
