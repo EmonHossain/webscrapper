@@ -1,6 +1,5 @@
 package com.webscraper.api.scraper;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,11 @@ public class ScraperController {
 
 	@GetMapping("/scrap")
 	public ResponseEntity<List<Proxy>> CollectInfoFormSite() {
-		//return new ResponseEntity<List<Proxy>>(scrapperService.collectproxyList(),HttpStatus.OK);
-		return new ResponseEntity<List<Proxy>>(Collections.emptyList(),HttpStatus.OK);
+		return new ResponseEntity<List<Proxy>>(scrapperService.scrapSites(),HttpStatus.OK);
+	}
+	
+	@GetMapping("/local")
+	public ResponseEntity<List<Proxy>> CollectInfoFormDB() {
+		return new ResponseEntity<List<Proxy>>(scrapperService.getAllProxy(),HttpStatus.OK);
 	}
 }

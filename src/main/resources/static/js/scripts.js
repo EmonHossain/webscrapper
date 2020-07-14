@@ -3,7 +3,7 @@ $(document).ready(
 
 			var table = $('#proxylist').DataTable();
 			
-			generateTable("data/scrap");
+			generateTable("data/local");
 
 			$('.btn-refresh').click(function(event) {
 				event.preventDefault();
@@ -23,10 +23,14 @@ $(document).ready(
 						function(data) {
 							console.log(data);
 							$.each(data, function(index, val) {
+								
 								table.row.add(
-										[ data[index].ip, data[index].port,
-												data[index].location,
-												data[index].status ]).draw(
+										[ val.ip, val.port,
+											formatDate(val.testDate),
+											formatDate(val.firstFound),
+											formatDate(val.lastFound),
+											formatDate(val.testUrlDate),
+											"<a id='"+val.ip+"' class='btn'  >Details</a>"]).draw(
 										false);
 							});
 
@@ -37,5 +41,23 @@ $(document).ready(
 					console.log("complete");
 				});
 			}
+			
+			function formatDate(date){
+				if(date != null){
+					var fd = date.split("-");
+					return fd[2]+"-"+fd[1]+"-"+fd[0];
+				}else{
+					return "";
+				}
+			}
 
+
+			$.on('click', '.view-details', function(event) {
+				event.preventDefault();
+				console.log(this.id);
+			});
+
+			
 		});
+
+		
