@@ -48,6 +48,9 @@ public class ProxyScraper {
 					p.setIp(data.get(0).text());
 					p.setPort(Integer.parseInt(data.get(1).text()));
 					p.setFirstFound(new Date());
+					p.setLastFound(new Date());
+					p.setTestDate(new Date());
+					p.setTestUrlDate(new Date());
 					proxyList.add(p);
 				}
 			});
@@ -83,6 +86,9 @@ public class ProxyScraper {
 							p.setIp(ip);
 							p.setPort(Integer.parseInt(port));
 							p.setFirstFound(new Date());
+							p.setLastFound(new Date());
+							p.setTestDate(new Date());
+							p.setTestUrlDate(new Date());
 							proxyList.add(p);
 						}
 					});
@@ -119,6 +125,9 @@ public class ProxyScraper {
 							p.setIp(ip);
 							p.setPort(Integer.parseInt(port));
 							p.setFirstFound(new Date());
+							p.setLastFound(new Date());
+							p.setTestDate(new Date());
+							p.setTestUrlDate(new Date());
 							proxyList.add(p);
 						}
 					});
@@ -154,6 +163,9 @@ public class ProxyScraper {
 					p.setIp(ip);
 					p.setPort(Integer.parseInt(port));
 					p.setFirstFound(new Date());
+					p.setLastFound(new Date());
+					p.setTestDate(new Date());
+					p.setTestUrlDate(new Date());
 					proxyList.add(p);
 				}
 			});
@@ -188,6 +200,9 @@ public class ProxyScraper {
 					p.setIp(ipAndPort[0]);
 					p.setPort(Integer.parseInt(ipAndPort[1]));
 					p.setFirstFound(new Date());
+					p.setLastFound(new Date());
+					p.setTestDate(new Date());
+					p.setTestUrlDate(new Date());
 					proxyList.add(p);
 				}
 			});

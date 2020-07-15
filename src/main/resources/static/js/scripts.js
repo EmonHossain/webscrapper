@@ -11,6 +11,14 @@ $(document).ready(
 				generateTable("data/scrap");
 			});
 
+			$('#proxylist').on('click', '.btn-details', function() {
+				
+				var id = $(this).attr('id');
+				$("#myModal").find("#exampleModalLongTitle").text("IP : "+id);
+				$("#myModal").find("#date").text(new Date().toLocaleString());
+				$("#myModal").modal('show');
+			});
+
 			function generateTable(link) {
 				$.ajax({
 					url : link,
@@ -29,8 +37,8 @@ $(document).ready(
 											formatDate(val.testDate),
 											formatDate(val.firstFound),
 											formatDate(val.lastFound),
-											formatDate(val.testUrlDate),
-											"<a id='"+val.ip+"' class='btn'  >Details</a>"]).draw(
+											formatDate(val.testUrlDate),"<a id='"+val.ip+"' class='btn btn-details'>Details</a>"
+											]).draw(
 										false);
 							});
 
@@ -52,10 +60,7 @@ $(document).ready(
 			}
 
 
-			$.on('click', '.view-details', function(event) {
-				event.preventDefault();
-				console.log(this.id);
-			});
+
 
 			
 		});
